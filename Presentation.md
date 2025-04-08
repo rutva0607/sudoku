@@ -88,16 +88,4 @@ This shows recursive backtracking in action.
 
 - Add better heuristics (e.g., MRV or AC-3)
 - Add unit tests
-- Include GUI frontend (e.g., with SDL or ncurses)
-- Use more optimized data structures like bitsets
-
-## 7. Contributions (Optional)
-
-- [ ] Bug raised / Issue reported
-- [ ] Pull request sent
-- [ ] Response from maintainers
-
-## 8. References
-
-- [Sudoku Solver Source](https://web.archive.org/web/20220210032019/http://ricardo.ecn.wfu.edu/sudoku/)
-- [Sudoku Solving Algorithms](https://www.geeksforgeeks.org/sudoku-backtracking-7/)
+- Include GUI frontend (e.g., with SDL or ncurses) 
