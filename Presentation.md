@@ -1,5 +1,19 @@
 # Sudoku Solver - Open Source Project Presentation
 
+##  Why Sudoku Solver is Harder Than Tetris (Conceptually)
+
+While Tetris is challenging to design in terms of **real-time gameplay** and **graphics**, a Sudoku solver involves deeper algorithmic reasoning and problem solving:
+
+| Aspect | Sudoku Solver | Tetris |
+|--------|---------------|--------|
+| **Algorithmic Complexity** | High: Involves backtracking, recursion, constraint propagation | Low: No advanced algorithms needed |
+| **AI/Logic** | Solves an NP-complete problem | Mostly user-driven, simple AI (if any) |
+| **Real-time Requirements** | None | Real-time input handling and rendering |
+| **Graphics/UI** | None (text-based) | Requires UI and animations |
+| **Memory Use** | Fixed structures, deterministic | Dynamic memory for piece handling |
+| **Problem Solving** | Requires logic to satisfy all constraints | Piece fitting and score tracking |
+
+**Conclusion:** While Tetris is harder to *implement interactively*, Sudoku is more intellectually demanding due to its logic-based nature and search space
 ## 1. Project Overview
 
 **Name:** sudoku.c  
