@@ -14,6 +14,7 @@ While Tetris is challenging to design in terms of **real-time gameplay** and **g
 | **Problem Solving** | Requires logic to satisfy all constraints | Piece fitting and score tracking |
 
 **Conclusion:** While Tetris is harder to *implement interactively*, Sudoku is more intellectually demanding due to its logic-based nature and search space
+
 ## 1. Project Overview
 
 **Name:** sudoku.c  
@@ -61,7 +62,7 @@ This project is a simple command-line Sudoku solver implemented in C. It is desi
 
 ### c. Tradeoffs Made
 
-- **Efficiency vs Simplicity:** The solver doesnâ€™t use advanced heuristics like "minimum remaining value" or forward checking.
+- **Efficiency vs Simplicity:** The solver doesn't use advanced heuristics like "minimum remaining value" or forward checking.
 - **Memory Usage:** Uses fixed-size arrays for simplicity.
 - **No GUI or advanced input validation.** Purely console-based for educational clarity.
 
@@ -102,4 +103,37 @@ This shows recursive backtracking in action.
 
 - Add better heuristics (e.g., MRV or AC-3)
 - Add unit tests
-- Include GUI frontend (e.g., with SDL or ncurses) 
+- Include GUI frontend (e.g., with SDL or ncurses)
+
+## 7. Viva Questions and Answers
+
+### Q1: What algorithm is used in this Sudoku solver?  
+**A:** It uses **backtracking**, a recursive technique to try filling the board by checking constraints and backtracking if a contradiction is found.
+
+### Q2: What is the purpose of the `candidates` array?  
+**A:** The `candidates` array tracks which numbers have already been used in a row, column, or square to avoid illegal placements.
+
+### Q3: What does `find_common_free` do?  
+**A:** It returns the next available number (starting from a given minimum) that is not yet used in the corresponding row, column, and 3x3 square.
+
+### Q4: How does the program know when a board is solved?  
+**A:** It checks if `unset_cells == 0`. If true, it prints the board and returns success.
+
+### Q5: What’s the role of `set_cell` and `unset_cell`?  
+**A:** `set_cell` fills a cell and marks the number as used in the relevant candidate arrays. `unset_cell` reverses this during backtracking.
+
+### Q6: How does the board input work?  
+**A:** It reads characters from a file or stdin. Digits represent values, and dots (.) indicate empty cells. Others are ignored.
+
+### Q7: Why are there `assert_` macros in the code?  
+**A:** These are conditional assertions used for debugging. They ensure function parameters and logic are valid during development.
+
+### Q8: How are rows, columns, and 3x3 squares managed separately?  
+**A:** Each cell has pointers to its row, column, and square candidate arrays, allowing independent tracking of constraints.
+
+### Q9: Why is `ARRAY_SIZE` set to 10 instead of 9?  
+**A:** To simplify indexing from 1 to 9 directly (1-based index), avoiding 0-based offset calculations.
+
+### Q10: How could this code be optimized further?  
+**A:** By adding constraint propagation, better cell selection heuristics (like Minimum Remaining Value), or switching to a more advanced algorithm like Dancing Links (DLX).
+
