@@ -36,21 +36,96 @@ This project is a simple command-line Sudoku solver implemented in C. It is desi
 - Explore possible improvements and limitations.
 - Prepare for viva-style questioning.
 
-## 3. Breadth-wise Understanding
+# 3 Function Summary
 
-### Main Components:
+This document provides a summary of all the functions used in the Sudoku solver written in C.
 
-- **Candidates System:** Tracks used numbers in rows, columns, and 3x3 squares.
-- **Board Structure:** 9x9 matrix of `cell` structs, with state and pointers to candidate arrays.
-- **Solver Logic:** Recursive backtracking to try each possibility.
-- **Input System:** Parses Sudoku board from file or standard input.
+---
 
-### Functions:
+## 🔢 Candidate Functions
+Functions that manage which numbers are available in rows, columns, and 3×3 squares.
 
-- `solve_board`: Recursively attempts to solve the puzzle.
-- `set_cell` / `unset_cell`: Manages candidate usage and backtracking.
-- `find_common_free`: Gets next valid number for a cell.
-- `print_board`: Displays the final solution.
+### `init_candidates(candidates *c)`
+- Initializes all numbers (1-9) as available (0).
+
+### `use_candidate(candidates *cp, int num)`
+- Marks a number as used (1) in the candidate list.
+
+### `restore_candidate(candidates *cp, int num)`
+- Marks a number as unused (0) again in the candidate list.
+
+---
+
+## 🔲 Board and Cell Functions
+Functions that manage the board, cells, and updating cell values.
+
+### `square(int row, int col)`
+- Returns the index (1-9) of the 3×3 square that the cell belongs to.
+
+### `init_board(struct board *b)`
+- Initializes the entire board.
+- Sets all cells to empty and links each cell to its row, column, and square candidates.
+
+### `find_common_free(...)`
+- Finds the smallest number (starting from `atleast`) that is free in a cell's row, column, and square.
+- Returns `-1` if none are available.
+
+### `set_cell(struct board *b, int r, int c, int val)`
+- Places a value in a cell.
+- Updates the candidate lists accordingly.
+
+### `unset_cell(struct board *b, int r, int c, int val)`
+- Removes a value from a cell (used for backtracking).
+- Restores the candidate lists.
+
+### `is_set(struct board *b, int r, int c)`
+- Checks if a cell already has a value.
+- Returns `1` if set, otherwise `0`.
+
+---
+
+## ♻️ Traversal Helpers
+Functions to navigate through the board cells.
+
+### `following(int num)`
+- Returns the next number after `num`, wrapping from 9 back to 1.
+
+### `next_cell(int *r, int *c)`
+- Moves to the next cell (left to right, top to bottom).
+- Returns `1` if successful, `0` if at the last cell.
+
+---
+
+## 📋 I/O Functions
+Functions to print or read the Sudoku puzzle.
+
+### `print_board(struct board *b)`
+- Prints the current state of the board.
+
+### `read_board(FILE *f, struct board *b)`
+- Reads a puzzle from a file or input.
+- Digits are fixed values; `.` is used for empty cells.
+
+---
+
+## 🧮 Solver Logic
+The main logic for solving the Sudoku puzzle.
+
+### `solve_board(struct board *b, int r, int c)`
+- Solves the Sudoku using recursive backtracking.
+- Tries all valid values in each empty cell.
+- Returns `1` if solved, otherwise `0`.
+
+---
+
+## 🚀 Main Function
+Program entry point.
+
+### `main(int argc, char *argv[])`
+- Reads input from file or stdin.
+- Initializes and reads the board.
+- Calls `solve_board()`.
+- Prints the solution or an error message.
 
 ## 4. Depth-wise Analysis
 
