@@ -109,7 +109,7 @@ This shows recursive backtracking in action.
 
 https://drive.google.com/file/d/1xYUF2wlbJJyV8TFVPMQr6wSb_Fn25dBO/view?usp=drivesdk
 
-## 8. Answers of the Questions which arise in our Journey.
+## 8. Answers of the Questions which arise in our Journey
 
 ### Q1: What algorithm is used in this Sudoku solver?  
 **A:** It uses **backtracking**, a recursive technique to try filling the board by checking constraints and backtracking if a contradiction is found.
