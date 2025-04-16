@@ -1,4 +1,9 @@
 # Sudoku Solver - Open Source Project Presentation
+## Presentation Made By
+- **Rutva Mehta**
+- **Khush Hingrajiya**
+- **Manthan Kanetiya**
+- **Vikas Bhabhor**
 
 ##  Why Sudoku Solver is Harder Than Tetris (Conceptually)
 
