@@ -38,10 +38,6 @@ This project is a simple command-line Sudoku solver implemented in C. It is desi
 
 # 3 Function Summary
 
-This document provides a summary of all the functions used in the Sudoku solver written in C.
-
----
-
 ## 🔢 Candidate Functions
 Functions that manage which numbers are available in rows, columns, and 3×3 squares.
 
